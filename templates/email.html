@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>{% block title %} Email passwords {% endblock %}</h1>
+    <form method="post">
+        <label for="title">Email Address</label>
+        <br>
+        <input type="text" name="title"
+               placeholder="test@test.com"
+               value="{{ request.form['title'] }}"></input>
+        <br>
+
+        <button type="submit">Submit</button>
+    </form>
+{% endblock %}

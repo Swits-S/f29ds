@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>{% block title %} Create a new password {% endblock %}</h1>
+    <form method="post">
+        <label for="title">Account for password</label>
+        <br>
+        <input type="text" name="title"
+               placeholder="Password account"
+               value="{{ request.form['title'] }}"></input>
+        <br>
+        <label for="length">Length of password</label>
+        <br>
+        <input type ="number" name="length"
+               placeholder="10"
+               value="{{ request.form['length'] }}"
+               min="6"
+               max="20"
+               value="10"></input>
+        <br>
+        <label for="caps">UpperCase ON/OFF</label>
+        <input type="checkbox" class='toggle' checked data-toggle="toggle" name="caps">
+        <br>
+        <label for="lower">LowerCase ON/OFF</label>
+        <input type="checkbox" class='toggle' checked data-toggle="toggle" name="lower">
+        <br>
+            <label for="numbers">Numbers ON/OFF</label>
+        <input type="checkbox" class='toggle' checked data-toggle="toggle" name="numbers">
+        <br>
+        <label for="special">Special Characters ON/OFF</label>
+        <input type="checkbox" class='toggle' checked data-toggle="toggle" name="special">
+        <br>
+
+        <button type="submit">Submit</button>
+    </form>
+{% endblock %}
