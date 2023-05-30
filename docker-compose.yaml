@@ -1,0 +1,30 @@
+version: '3.8'
+services:
+  web-app:
+    image: swits23/f29dscw:f29dscw
+    container_name: f29dscw
+    ports:
+      - "5000:5000"
+  mysqldb:
+    image: mysql
+    ports:
+      - "3306:3306"
+    environment:
+      - MYSQL_ROOT_PASSWORD=P@55w0rd!
+      - MYSQL_USER=user
+      - MYSQL_PASSWORD=password
+      - MYSQL_DATABASE=users
+    volumes:
+      - mysql:/var/lib/mysql
+
+volumes:
+    mysql:
+        driver: azure_file
+        driver_opts:
+            share_name: myfileshare
+            storage_account_name: f29dscw1
+    mysql-config:
+        driver: azure_file
+        driver_opts:
+            share_name: myfileshareconfig
+            store_account_name: f29dscwconfig
