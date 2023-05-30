@@ -2,10 +2,10 @@
 
 {% block content %}
     <h1>{% block title %} Passwords {% endblock %}</h1>
-    {% for message in messages %}
+    {% for row in value %}
         <div class='message'>
-            <h3>{{ message['title'] }}</h3>
-            <p>{{ message['content'] }}</p>
+            <h3>{{row[0]}}</h3>
+            <p>{{row[1]}}</p>
         </div>
     {% endfor %}
 {% endblock %}

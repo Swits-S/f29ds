@@ -1,5 +1,6 @@
 FROM python:3.9
-ADD main.py .
-RUN pip install requests flask
+ADD routes.py .
+COPY templates /templates
+RUN pip install requests flask mysql-connector-python yagmail jinja2
 EXPOSE 8080
-CMD ["python", "./main.py"]
+CMD ["python", "./routes.py"]
